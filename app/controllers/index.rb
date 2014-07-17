@@ -12,7 +12,7 @@ post '/sessions' do
   end
 
   if logged_in?
-    redirect "/users/#{user.id}"
+    redirect "/users/#{current_user.id}"
   else
     redirect '/'
   end
