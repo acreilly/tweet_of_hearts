@@ -1,6 +1,5 @@
-get '/tweets' do
-
-erb :tweet_page
+get '/tweets' do # will need user id here
+  erb :tweet_page
 end
 
 post '/tweets' do
