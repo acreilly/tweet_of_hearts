@@ -7,7 +7,10 @@ end
 
 post '/sessions' do
   user = User.find_by(email: params[:email])
-  session[:user_id] = user.id if user.password == params[:password] && user
+  if user && user.password == params[:password]
+    session[:user_id] = user.id
+  end
+
   if logged_in?
     redirect "/users/#{current_user.id}"
   else
@@ -22,5 +25,6 @@ post '/users' do
 end
 
 get '/users/:id' do
+
   erb :profile
 end
