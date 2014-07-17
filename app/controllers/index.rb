@@ -9,7 +9,7 @@ post '/sessions' do
   user = User.find_by(email: params[:email])
   session[:user_id] = user.id if user.password == params[:password] && user
   if logged_in?
-    redirect '/users/:id'
+    redirect "/users/#{current_user.id}"
   else
     redirect '/'
   end
