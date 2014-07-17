@@ -28,3 +28,9 @@ get '/users/:id' do
 
   erb :profile
 end
+
+
+post '/logout' do
+  log_out
+  redirect '/'
+end
