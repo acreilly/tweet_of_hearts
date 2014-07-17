@@ -1,8 +1,7 @@
 <div class="container">
   <h2>Tweet here</h2>
   <form action="/users/<%= session[:user_id] %>" method="post"> <!-- change action to have userid in route -->
-    <textarea name="content" cols="30" rows="10" placeholder="Tweet 140 characters or less">
-    </textarea>
+    <textarea name="content" cols="30" rows="10" placeholder="Tweet 140 characters or less"></textarea>
     <input type="submit" value="Submit">
   </form>
 <h3>Previous tweets...</h3>
