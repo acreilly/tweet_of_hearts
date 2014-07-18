@@ -1,0 +1,23 @@
+<div class="container">
+  <fieldset>
+    <legend>Followers</legend>
+    <ul>
+      <% current_user.followers.each do |follower| %>
+      <li>
+        <i class="fa fa-heart-o fa-lg"></i><%= follower.email %>
+      </li>
+      <% end %>
+    </ul>
+  </fieldset>
+
+    <fieldset>
+    <legend>Following</legend>
+    <ul>
+      <% Relationship.where(follower_id: session[:user_id]).each do |following| %>
+      <li><i class="fa fa-heart-o fa-lg"></i>
+        <%= User.find_by_id(following.user_id).email %>
+      </li>
+      <% end %>
+    </ul>
+  </fieldset>
+</div>
