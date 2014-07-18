@@ -21,17 +21,30 @@ end
 
 #post signup
 post '/users' do
+  @target_user = User.find(params[:user_id])
   User.create(params)
   redirect '/'
 end
+
 
 get '/users/:user_id' do
   @target_user = User.find(params[:user_id])
   erb :profile
 end
 
-
 post '/logout' do
   log_out
   redirect '/'
 end
+
+### create serperate followers page IF THERE IS TIME
+# get '/users/:id/followers' do
+
+#   erb :followers_page
+# end
+
+### create serperate following page IF THERE IS TIME
+# get '/users/:id/following' do
+
+#   erb :following_page
+# end
