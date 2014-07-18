@@ -1,7 +1,7 @@
 helpers do
 
   def gravatar_image
-    email_address = current_user.email.downcase
+    email_address = @target_user.email.downcase
     hash = Digest::MD5.hexdigest(email_address)
     image_src = "http://www.gravatar.com/avatar/#{hash}"
   end

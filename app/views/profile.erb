@@ -4,17 +4,19 @@
 </header>
 <div class="container" id="left">
   <fieldset>
+    <img src=<%=gravatar_image%>>
     <h2><%=@target_user.first_name%>'s Profile Page!</h2>
 
 
     <form action="/following/<%=@target_user.id%>" method='post'>
       <input type='submit' value='Follow!'>
     </form>
-
   </fieldset>
+  <%= erb :tweet_page %>
   <form action="/logout" method="post" id="logout">
     <input type="submit" value="Logout">
   </form>
 </div>
+
 
 <%= erb :relationship %>

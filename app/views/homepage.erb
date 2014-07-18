@@ -1,7 +1,40 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <header>
-<h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
+  <h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
 </header>
-  <%= erb :tweet_page %>
 
-  <%= erb :relationship %>
+<div class="container" id="left">
+  <fieldset>
+    <legend>Tweet</legend>
+    <img src=<%=gravatar_image%>>
+    <h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
+    <h4>Tweet here...</h4>
+    <form action="/users/<%= session[:user_id] %>" method="post"> <!-- change action to have userid in route -->
+      <textarea name="content" cols="30" rows="10" placeholder="Tweet 140 characters or less"></textarea>
+      <input type="submit" value="Submit">
+    </form>
+  </legend>
+</fieldset>
+<%= erb :tweet_page %>
+</div>
+
+<div class="container" id="suggest">
+  <fieldset>
+  <legend>Suggested People To Follow!</legend>
+  <% User.all.each do |person| %>
+
+  <ul>
+    <li><i class="fa fa-heart-o fa-lg"></i><a href="/profiles/<%=person.id%>"><%= person.first_name %></a></li>
+  </ul>
+  <% end %>
+  </fieldset>
+</div>
+
+<%= erb :relationship %>
+
+
+
+<form action="/logout" method="post" id="logout">
+  <input type="submit" value="Logout">
+</form>
+</div>

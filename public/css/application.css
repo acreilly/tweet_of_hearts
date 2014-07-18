@@ -100,10 +100,11 @@ border: 2px inset #91A3B0;
   top: 150px;
 }
 
+
 #relationship_info{
   float: right;
-  margin-top: 20px;
-  position: relative;
-  top: 150px;
-  right: 150px;
+
+  position: absolute;
+  top: 0;
+  left: 500px;
 }
