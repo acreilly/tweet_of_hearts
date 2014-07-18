@@ -1,10 +1,12 @@
 get '/' do
-
   erb :index
 end
 
-#post signin
+# before do
+#   redirect '/' unless logged_in?
+# end
 
+#post signin
 post '/sessions' do
   user = User.find_by(email: params[:email])
   if user && user.password == params[:password]
@@ -26,8 +28,7 @@ post '/users' do
 end
 
 get '/users/:id' do
-  @current_page = params[:id]
-  erb :profile
+  erb :homepage
 end
 
 post '/logout' do
@@ -35,14 +36,13 @@ post '/logout' do
   redirect '/'
 end
 
-### create serperate followers page IF THERE IS TIME
-# get '/users/:id/followers' do
+get '/profiles/:user_id' do
+  @user = User.find(params[:user_id])
+  erb :profile
+end
 
-#   erb :followers_page
-# end
-
-### create serperate following page IF THERE IS TIME
-# get '/users/:id/following' do
-
-#   erb :following_page
-# end
+post '/following/:user_id' do
+  p current_user
+  current_user.followers << User.find(params[:user_id])
+  redirect "/profiles/#{params[:user_id]}"
+end
