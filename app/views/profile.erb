@@ -1,7 +1,10 @@
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-<header>
-<h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
-</header>
-  <%= erb :tweet_page %>
+<h2><%=@user.first_name%>'s Profile Page!</h2>
 
-  <%= erb :relationship %>
+
+<form action="/following/<%=@user.id%>" method='post'>
+  <input type='submit' value='Follow!'>
+</form>
+<h3>People following Jeuel</h3>
+
+<h3>People who Jeuel Follow</h3>
+
