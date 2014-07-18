@@ -25,8 +25,8 @@ post '/users' do
   redirect '/'
 end
 
-get '/users/:id' do
-
+get '/users/:user_id' do
+  @target_user = User.find(params[:user_id])
   erb :profile
 end
 

@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" id="relationship_info">
   <fieldset>
     <legend>Followers</legend>
     <ul>
-      <% current_user.followers.each do |follower| %>
+      <% @target_user.followers.each do |follower| %>
       <li>
         <i class="fa fa-heart-o fa-lg"></i><%= follower.email %>
       </li>
@@ -13,7 +13,7 @@
     <fieldset>
     <legend>Following</legend>
     <ul>
-      <% Relationship.where(follower_id: session[:user_id]).each do |following| %>
+      <% Relationship.where(follower_id: @target_user.id).each do |following| %>
       <li><i class="fa fa-heart-o fa-lg"></i>
         <%= User.find_by_id(following.user_id).email %>
       </li>
