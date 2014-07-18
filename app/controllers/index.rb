@@ -29,7 +29,8 @@ post '/users' do
   redirect "/users/#{current_user.id}"
 end
 
-get '/users/:id' do
+get '/users/:user_id' do
+  @target_user = User.find(params[:user_id])
   erb :homepage
 end
 
@@ -39,7 +40,7 @@ post '/logout' do
 end
 
 get '/profiles/:user_id' do
-  @user = User.find(params[:user_id])
+  @target_user = User.find(params[:user_id])
   erb :profile
 end
 

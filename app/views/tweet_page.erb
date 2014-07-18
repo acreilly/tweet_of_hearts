@@ -1,24 +1,10 @@
-<div class="container">
+<div class="container" id="left-prev">
   <fieldset>
-    <legend>Tweet</legend>
-    <img src=<%=gravatar_image%>>
-    <h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
-  <h4>Tweet here...</h4>
-  <form action="/users/<%= session[:user_id] %>" method="post"> <!-- change action to have userid in route -->
-    <textarea name="content" cols="30" rows="10" placeholder="Tweet 140 characters or less"></textarea>
-    <input type="submit" value="Submit">
-  </form>
-<h4>Previous tweets...</h4>
-  <% Tweet.where(user_id: session[:user_id]).each do |tweet| %> <!-- change Tweet.all to Tweets by user-->
-  <ul>
-    <li><i class="fa fa-heart-o fa-lg"></i><%= tweet.content %></li>
-  </ul>
-  <% end %>
+    <legend>Previous Tweets</legend>
+    <% Tweet.where(user_id: @target_user.id).each do |tweet| %> <!-- change Tweet.all to Tweets by user-->
+    <ul>
+      <li><i class="fa fa-heart-o fa-lg"></i><%= tweet.content %></li>
+    </ul>
+    <% end %>
 
   </fieldset>
-
-
-  <form action="/logout" method="post" id="logout">
-    <input type="submit" value="Logout">
-  </form>
-</div>
