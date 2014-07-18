@@ -2,8 +2,11 @@ get '/' do
   erb :index
 end
 
-#post signin
+# before do
+#   redirect '/' unless logged_in?
+# end
 
+#post signin
 post '/sessions' do
   user = User.find_by(email: params[:email])
   if user && user.password == params[:password]
