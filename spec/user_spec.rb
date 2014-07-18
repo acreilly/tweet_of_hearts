@@ -17,16 +17,16 @@ describe User do
     end
 
     it "only accepts valid email addresses" do
-      params= {email: '1', first_name: 'ariel', password: '123456'}
+      params= {email: '1', first_name: 'parjam', password: '123456'}
       expect{User.create(params)}.to_not change {User.count}
-      params[:email] = 'ariel@dbc.com'
+      params[:email] = 'parjam@dbc.com'
       expect{User.create(params)}.to change {User.count}.by(1)
-      # pending
     end
 
     it "only creates records with unique email addresses" do
       params= {email: 'ariel@dbc.com', first_name: 'ariel', password: '123456'}
-      pending
+      User.create(params)
+      expect{User.create(params)}.to_not change {User.count}
     end
 
 
