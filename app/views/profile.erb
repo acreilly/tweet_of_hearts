@@ -1,9 +1,9 @@
-<div class="container">
-<h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
-<img src=<%=gravatar_image%>>
-<%= erb :tweet_page %>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
-<form action="/logout" method="post">
+<h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
+
+  <%= erb :tweet_page %>
+
+  <form action="/logout" method="post" id="logout">
     <input type="submit" value="Logout">
-</form>
-</div>
+  </form>

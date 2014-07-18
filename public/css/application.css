@@ -1,13 +1,57 @@
 body{
 font-family: helvetica, sans-serif;
 background-color: #E5E8ED;
+color: #767676;
 }
 
-h2{
+h1{
+  margin: 20px 40px;
+  font-size: 60px;
+}
 
+h1 i{
+color: #FFB6C1;
+font-size: 50px;
+}
+
+.container input{
+  margin: 5px 0;
+  display: block;
+}
+
+#logout{
+  margin-left: 40px;
+  margin-top: 10px;
 }
 
 .container{
+  border: 1px dashed #FFB6C1;
   padding: 20px;
+  width: 500px;
+  margin-top: 20px;
+  margin-left: 40px;
 }
 
+form{
+  margin: auto;
+}
+
+ul{
+  list-style: none;
+}
+
+ul li{
+
+}
+
+ul li i{
+  color: #FFB6C1;
+  margin-right: 15px;
+}
+
+img {
+  float: left;
+padding-right: 10px;
+width: 100px;
+height: auto;
+}
