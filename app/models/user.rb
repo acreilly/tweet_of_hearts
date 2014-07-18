@@ -8,4 +8,15 @@ class User < ActiveRecord::Base
 
   has_many :followee_relationships, :foreign_key => "follower_id", :class_name => "Relationship"
   has_many :followings, through: :followee_relationships, source: :user
+
+  include BCrypt
+
+  def password
+    @password ||= Password.new(password_hash)
+  end
+
+  def password=(new_password)
+    @password = Password.create(new_password)
+    self.password_hash = @password
+  end
 end

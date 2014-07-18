@@ -17,6 +17,7 @@ require 'logger'
 require 'sinatra/flash'
 require 'sinatra'
 require 'digest/md5'
+require 'bcrypt'
 require "sinatra/reloader" if development?
 
 require 'erb'
