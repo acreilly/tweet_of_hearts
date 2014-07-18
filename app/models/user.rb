@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   validates :email, uniqueness: true
   validates :email, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
                               message: "only allow valid email addresses"}
-  validates :password, length: { minimum: 6 }
 
   has_many :relationships
   has_many :followers, through: :relationships

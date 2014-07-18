@@ -2,7 +2,9 @@ require 'spec_helper'
 
 describe User do
   context "validations" do
-
+    before(:each) do
+      User.all.map(&:destroy)
+    end
     it "doesn't add a record to the db" do
       params= {email: nil, first_name: 'ariel', password: '123456'}
       user = User.new(params)
@@ -27,11 +29,6 @@ describe User do
       params= {email: 'ariel@dbc.com', first_name: 'ariel', password: '123456'}
       User.create(params)
       expect{User.create(params)}.to_not change {User.count}
-    end
-
-
-    it "has a password with minimum length of 6 chars" do
-      pending
     end
   end
 end
