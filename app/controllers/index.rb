@@ -46,4 +46,3 @@ post '/following/:user_id' do
   current_user.followers << User.find(params[:user_id])
   redirect "/profiles/#{params[:user_id]}"
 end
-
