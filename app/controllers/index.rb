@@ -1,5 +1,4 @@
 get '/' do
-
   erb :index
 end
 
@@ -26,12 +25,22 @@ post '/users' do
 end
 
 get '/users/:id' do
-
-  erb :profile
+  erb :homepage
 end
-
 
 post '/logout' do
   log_out
   redirect '/'
 end
+
+get '/profiles/:user_id' do
+  @user = User.find(params[:user_id])
+  erb :profile
+end
+
+post '/following/:user_id' do
+  p current_user
+  current_user.followers << User.find(params[:user_id])
+  redirect "/profiles/#{params[:user_id]}"
+end
+
