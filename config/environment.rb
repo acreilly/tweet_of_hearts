@@ -16,6 +16,7 @@ require 'active_record'
 require 'logger'
 require 'sinatra/flash'
 require 'sinatra'
+require 'digest/md5'
 require "sinatra/reloader" if development?
 
 require 'erb'

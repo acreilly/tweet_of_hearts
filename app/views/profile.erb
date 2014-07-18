@@ -1,5 +1,6 @@
 <div class="container">
 <h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
+<img src=<%=gravatar_image%>>
 <%= erb :tweet_page %>
 
 <form action="/logout" method="post">
