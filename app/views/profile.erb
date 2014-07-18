@@ -1,10 +1,22 @@
-<h2><%=@user.first_name%>'s Profile Page!</h2>
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<header>
+  <h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
+</header>
+<div class="container" id="left">
+  <fieldset>
+    <img src=<%=gravatar_image%>>
+    <h2><%=@target_user.first_name%>'s Profile Page!</h2>
 
 
-<form action="/following/<%=@user.id%>" method='post'>
-  <input type='submit' value='Follow!'>
-</form>
-<h3>People following Jeuel</h3>
+    <form action="/following/<%=@target_user.id%>" method='post'>
+      <input type='submit' value='Follow!'>
+    </form>
+  </fieldset>
+  <%= erb :tweet_page %>
+  <form action="/logout" method="post" id="logout">
+    <input type="submit" value="Logout">
+  </form>
+</div>
 
-<h3>People who Jeuel Follow</h3>
 
+<%= erb :relationship %>
