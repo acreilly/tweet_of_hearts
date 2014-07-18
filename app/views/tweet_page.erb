@@ -1,13 +1,14 @@
 <div class="container">
-  <h2>Tweet here</h2>
+    <h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
+  <h4>Tweet here...</h4>
   <form action="/users/<%= session[:user_id] %>" method="post"> <!-- change action to have userid in route -->
     <textarea name="content" cols="30" rows="10" placeholder="Tweet 140 characters or less"></textarea>
     <input type="submit" value="Submit">
   </form>
-<h3>Previous tweets...</h3>
+<h4>Previous tweets...</h4>
   <% Tweet.all.each do |tweet| %> <!-- change Tweet.all to Tweets by user-->
   <ul>
-    <li><%= tweet.content %></li>
+    <li><i class="fa fa-heart-o fa-lg"></i><%= tweet.content %></li>
   </ul>
   <% end %>
 </div>

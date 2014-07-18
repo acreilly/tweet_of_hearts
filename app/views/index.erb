@@ -1,15 +1,19 @@
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+<h1 id="first">Twitter <i class="fa fa-heart"></i></h1>
 <div class="container">
-  <h1>Twitter!</h1>
   <% if flash[:error]%>
     <%= flash[:error] %>
   <% end %>
   <form action="/sessions" method="post">
+    <h4>Login</h4>
     <input type="text" name="email" placeholder="email">
     <input type="password" name="password" placeholder="password">
     <input type="submit" value="Submit">
   </form>
   <br>
   <form action="/users" method="post">
+    <h4>Sign up</h4>
     <input type="text" name="email" placeholder="email">
     <input type="text" name="first_name" placeholder="First name">
     <input type="password" name="password" placeholder="password">
