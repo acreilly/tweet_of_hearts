@@ -48,3 +48,10 @@ ul li i{
   color: #FFB6C1;
   margin-right: 15px;
 }
+
+img {
+  float: left;
+padding-right: 10px;
+width: 100px;
+height: auto;
+}
