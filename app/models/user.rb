@@ -1,11 +1,11 @@
 class User < ActiveRecord::Base
   has_many :tweets
 
-  # validates :email, :first_name, :password, presence: true
-  # validates :email, uniqueness: true
-  # validates :email, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
-  #                             message: "only allow valid email addresses"}
-  # validates :password, length: { minimum: 6 }
+  validates :email, :first_name, :password, presence: true
+  validates :email, uniqueness: true
+  validates :email, format: { with: /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/,
+                              message: "only allow valid email addresses"}
+
 
   has_many :relationships
   has_many :followers, through: :relationships

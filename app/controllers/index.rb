@@ -24,7 +24,9 @@ end
 #post signup
 post '/users' do
   User.create(params)
-  redirect '/'
+  user = User.find_by(email: params[:email])
+  session[:user_id] = user.id
+  redirect "/users/#{current_user.id}"
 end
 
 get '/users/:user_id' do
