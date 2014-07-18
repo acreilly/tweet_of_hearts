@@ -14,6 +14,7 @@ post '/sessions' do
   if logged_in?
     redirect "/users/#{current_user.id}"
   else
+    flash[:error] = "Your username or password is incorrect!"
     redirect '/'
   end
 end
