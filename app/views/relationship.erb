@@ -4,7 +4,7 @@
     <ul>
       <% @target_user.followers.each do |follower| %>
       <li>
-        <a href="/users/<%=follower.id%>"><i class="fa fa-heart-o fa-lg"></i><%= follower.email %><a>
+        <a href="/profiles/<%=follower.id%>"><i class="fa fa-heart-o fa-lg"></i><%= follower.email %><a>
       </li>
       <% end %>
     </ul>
@@ -15,7 +15,7 @@
     <ul>
       <% Relationship.where(follower_id: @target_user.id).each do |following| %>
       <li><i class="fa fa-heart-o fa-lg"></i>
-        <a href="/users/<%=following.id%>"><%= User.find_by_id(following.user_id).email %></a>
+        <a href="/profiles/<%=following.id%>"><%= User.find_by_id(following.user_id).email %></a>
       </li>
       <% end %>
     </ul>

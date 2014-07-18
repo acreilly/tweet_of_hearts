@@ -1,7 +1,20 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 <header>
-<h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
+  <h1 id="pro">Twitter <i class="fa fa-heart"></i></h1>
 </header>
-  <%= erb :tweet_page %>
+<div class="container" id="left">
+  <fieldset>
+    <h2><%=@target_user.first_name%>'s Profile Page!</h2>
 
-  <%= erb :relationship %>
+
+    <form action="/following/<%=@target_user.id%>" method='post'>
+      <input type='submit' value='Follow!'>
+    </form>
+
+  </fieldset>
+  <form action="/logout" method="post" id="logout">
+    <input type="submit" value="Logout">
+  </form>
+</div>
+
+<%= erb :relationship %>
