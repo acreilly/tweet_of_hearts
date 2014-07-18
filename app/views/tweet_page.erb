@@ -1,4 +1,6 @@
 <div class="container">
+  <fieldset>
+    <legend>Tweet</legend>
     <img src=<%=gravatar_image%>>
     <h2>Welcome, <%= current_user.first_name.capitalize %>!</h2>
   <h4>Tweet here...</h4>
@@ -7,9 +9,16 @@
     <input type="submit" value="Submit">
   </form>
 <h4>Previous tweets...</h4>
-  <% Tweet.all.each do |tweet| %> <!-- change Tweet.all to Tweets by user-->
+  <% Tweet.where(user_id: session[:user_id]).each do |tweet| %> <!-- change Tweet.all to Tweets by user-->
   <ul>
     <li><i class="fa fa-heart-o fa-lg"></i><%= tweet.content %></li>
   </ul>
   <% end %>
+
+  </fieldset>
+
+
+  <form action="/logout" method="post" id="logout">
+    <input type="submit" value="Logout">
+  </form>
 </div>
